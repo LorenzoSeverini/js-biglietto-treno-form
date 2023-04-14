@@ -1,0 +1,57 @@
+/* Generic element  */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* bg-color  */
+.MyBgPrimary { background-color: #916f66;}
+
+/*font size ticket card*/
+.myTextSize {
+    font-size: 1.25rem;
+}
+
+/* dark mode  */
+body.mydarkMode {
+    background-color: #212529;
+    color: #fff;
+}
+
+body.mydarkMode .fa-solid {
+    color: #fff;
+}
+  
+.myCardBgColorDarnkMode.mydarkMode {
+    background-color: #7091b3;
+}
+
+/* header  */
+h1:hover {
+    cursor: pointer;
+}
+
+/* card form effect  */
+.myCardEffect {
+    -webkit-box-shadow: -2px 6.5px 16.5px 0.5px #2a1f1f;
+    -moz-box-shadow: -2px 6.5px 16.5px 0.5px #2a1f1f;
+    box-shadow: -2px 6.5px 16.5px 0.5px #2a1f1f;
+    transition: all 0.3s;
+}
+
+.myCardEffect:hover {
+    transform: scale(0.95);
+    transition: all 0.3s;
+}
+
+/*************************************************************************/
+/******************** Media query for screens up to 767px wide ***********/
+
+@media (max-width: 34.375rem) {
+    .myTextSize {
+        font-size: .625rem;
+    }
+}
+  
+  
