@@ -6,7 +6,7 @@
 }
 
 /* bg-color  */
-.MyBgPrimary { background-color: #916f66;}
+.myBgPrimary { background-color: #916f66;}
 
 /*font size ticket card*/
 .myTextSize {
@@ -17,14 +17,15 @@
 body.mydarkMode {
     background-color: #212529;
     color: #fff;
+
 }
 
 body.mydarkMode .fa-solid {
     color: #fff;
 }
-  
-.myCardBgColorDarnkMode.mydarkMode {
-    background-color: #7091b3;
+
+body.mydarkMode .a {
+    color: #fff;
 }
 
 /* header  */
