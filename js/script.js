@@ -71,77 +71,35 @@ btnGenerate.addEventListener("click",
             discount = 0;
             discountType = "Full price";
         }
-
+        
         // number of km
         var km = document.getElementById("km").value;
-        
+
         if( isNaN(km) || km < 1) {
             alert("Please insert a valid number of km");
         } 
 
         // departure city
         var departure = document.getElementById("departure").value;
+
         if (departure == "") {
             alert("Please insert a valid departure city");
-        } else if (departure == "Milan") {
-            ticketPrice = ticketPrice * 1.1;
-        } else if (departure == "Rome") {
-            ticketPrice = ticketPrice * 1.2;
-        } else if (departure == "Turin") {
-            ticketPrice = ticketPrice * 1.3;
-        } else if (departure == "Naples") {
-            ticketPrice = ticketPrice * 1.4;
-        } else if (departure == "Palermo") {
-            ticketPrice = ticketPrice * 1.5;
-        } else if (departure == "Venice") {
-            ticketPrice = ticketPrice * 1.6;
-        } else if (departure == "Genoa") {
-            ticketPrice = ticketPrice * 1.7;
-        } else if (departure == "Bologna") {
-            ticketPrice = ticketPrice * 1.8;
-        } else if (departure == "Florence") {
-            ticketPrice = ticketPrice * 1.9;
-        } else if (departure == "Bari") {
-            ticketPrice = ticketPrice * 2;
-        } else if (departure == "ReggioEmilia") {
-            ticketPrice = ticketPrice * 2.1;
-        } 
+        }
 
         // destination city
         var destination = document.getElementById("destination").value;
+
         if (destination == "") {
             alert("Please insert a valid destination city");
-        } else if (destination == "Milan") {
-            ticketPrice = ticketPrice * 1.1;
-        } else if (destination == "Rome") {
-            ticketPrice = ticketPrice * 1.2;
-        } else if (destination == "Turin") {
-            ticketPrice = ticketPrice * 1.3;
-        } else if (destination == "Naples") {
-            ticketPrice = ticketPrice * 1.4;
-        } else if (destination == "Palermo") {
-            ticketPrice = ticketPrice * 1.5;
-        } else if (destination == "Venice") {
-            ticketPrice = ticketPrice * 1.6;
-        } else if (destination == "Genoa") {
-            ticketPrice = ticketPrice * 1.7;
-        } else if (destination == "Bologna") {
-            ticketPrice = ticketPrice * 1.8;
-        } else if (destination == "Florence") {
-            ticketPrice = ticketPrice * 1.9;
-        } else if (destination == "Bari") {
-            ticketPrice = ticketPrice * 2;
-        } else if (destination == "Reggio Emilia") {
-            ticketPrice = ticketPrice * 2.1;
         }
 
         // check if the values are the same
         if (departure === destination) {
             alert("Departure and destination cities cannot be the same.");;
         } 
-        
+
         // ticket price calculation
-        var ticketPrice
+        var ticketPrice = (km * 0.21);
         var discount;
         var discountType;
         var finalPrice = (ticketPrice - discount).toFixed(2);
@@ -152,7 +110,6 @@ btnGenerate.addEventListener("click",
         document.getElementById("passenger").innerHTML = passengerName;
         document.getElementById("discount").innerHTML = discountType;
         document.getElementById("ticketPrice").innerHTML = finalPrice + "€";
-    
         // wagon number
         var wagonNumber = Math.floor(Math.random() * 9) + 1;
         document.getElementById("wagon").innerHTML = wagonNumber;
@@ -167,9 +124,10 @@ btnGenerate.addEventListener("click",
         var day = date.getDate();
         var month = date.getMonth() + 1;
         var year = date.getFullYear();
-        document.getElementById("date").innerHTML = day + "/" + month + "/" + year;
+        document.getElementById("date").innerHTML = day + "/" + month + "/" + year; 
     }
 )
+
 
 // event for the button cancel
 var btnGenerate = document.getElementById("cancel");
@@ -196,28 +154,16 @@ const darkModeSwitch = document.getElementById('darkModeSwitch');
 const body = document.body;
 const icon = document.querySelector('.fa-solid');
 
-// Check local storage for dark mode preference
-if (localStorage.getItem('mydarkMode') === 'on') {
-    body.classList.add('mydarkMode');
-    darkModeSwitch.checked = true;
-    icon.classList.add('fa-white');
-} else {
-    body.classList.remove('mydarkMode');
-    darkModeSwitch.checked = false;
-    icon.classList.add('fa-black');
-}
-
-// Dark mode toggle event listener
-darkModeSwitch.addEventListener('click', () => {
+// Listen for a click on the toggle
+darkModeSwitch.addEventListener('click', function () {
     if (darkModeSwitch.checked) {
         body.classList.add('mydarkMode');
-        localStorage.setItem('mydarkMode', 'on');
-        icon.classList.remove('fa-black');
         icon.classList.add('fa-white');
+        localStorage.setItem('mydarkMode', 'on');
     } else {
         body.classList.remove('mydarkMode');
-        localStorage.setItem('mydarkMode', 'off');
-        icon.classList.remove('fa-white');
         icon.classList.add('fa-black');
+        localStorage.setItem('mydarkMode', 'off');
     }
 });
+
