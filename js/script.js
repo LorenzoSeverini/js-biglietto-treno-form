@@ -84,19 +84,18 @@ btnGenerate.addEventListener("click",
 
         if (departure == "") {
             alert("Please insert a valid departure city");
-        }
+        } else if (departure == destination) {
+            alert("Departure and destination cities cannot be the same.");
+        } 
 
         // destination city
         var destination = document.getElementById("destination").value;
 
         if (destination == "") {
             alert("Please insert a valid destination city");
+        } else if (destination == departure) {
+            alert("Departure and destination cities cannot be the same.");
         }
-
-        // check if the values are the same
-        if (departure === destination) {
-            alert("Departure and destination cities cannot be the same.");;
-        } 
 
         // ticket price calculation
         var ticketPrice = (km * 0.21);
@@ -105,8 +104,8 @@ btnGenerate.addEventListener("click",
         var finalPrice = (ticketPrice - discount).toFixed(2);
 
         // ticket section print
-        document.getElementById("departure").innerHTML = departure;
-        document.getElementById("destination").innerHTML = destination;
+        document.getElementById("departureTicekt").innerHTML = departure;
+        document.getElementById("destinationTicket").innerHTML = destination;
         document.getElementById("passenger").innerHTML = passengerName;
         document.getElementById("discount").innerHTML = discountType;
         document.getElementById("ticketPrice").innerHTML = finalPrice + "€";
