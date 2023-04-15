@@ -86,8 +86,8 @@ btnGenerate.addEventListener("click",
             alert("Please insert a valid departure city");
         } else if (departure == destination) {
             alert("Departure and destination cities cannot be the same.");
-        } 
-
+        }
+        
         // destination city
         var destination = document.getElementById("destination").value;
 
@@ -134,14 +134,16 @@ btnGenerate.addEventListener("click",
     function () {
         // null value
         document.getElementById("name").value = "";
+        document.getElementById("departure").value = "";
+        document.getElementById("destination").value = "";
         document.getElementById("km").value = "";
         document.getElementById("age").value = "";
         document.getElementById("passenger").innerHTML = "";
         document.getElementById("discount").innerHTML = "";
         document.getElementById("ticketPrice").innerHTML = "";
         document.getElementById("wagon").innerHTML = "";
-        document.getElementById("departure").value = "";
-        document.getElementById("destination").value = "";
+        document.getElementById("departureTicekt").value = "";
+        document.getElementById("destinationTicket").value = "";
         document.getElementById("ccp").innerHTML = "";
         document.getElementById("ticketNumber").innerHTML = "";
         document.getElementById("date").innerHTML = "";
