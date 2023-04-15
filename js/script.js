@@ -28,9 +28,9 @@ btnGenerate.addEventListener("click",
         if (passengerName == "") {
             alert("Please insert a valid name");
         } else if (passengerName.length < 3) {
-            alert("Please insert a valid name");
+            alert("Please insert a name longer than 3 characters");
         } else if (passengerName.length > 40) {
-            alert("Please insert a valid name");
+            alert("Please insert a name shorter than 40 characters");
         } else if (passengerName.includes("1")) {
             alert("Please insert a valid name");
         } else if (passengerName.includes("2")) {
@@ -51,26 +51,14 @@ btnGenerate.addEventListener("click",
             alert("Please insert a valid name");
         } else if (passengerName.includes("0")) {
             alert("Please insert a valid name");
-        } else {
+        } 
 
         // passenger age
         var age = document.getElementById("age").value;
 
         if (age == "") {
             alert("Please insert a valid age");
-        } else {
-
-        // number of km
-        var km = document.getElementById("km").value;
-        
-        if( isNaN(km) || km < 1) {
-            alert("Please insert a valid number of km");
-        } else {
-
-        // ticket price calculation
-        var ticketPrice = Math.floor(km * 0.21);
-        var discount;
-        var discountType;
+        } 
         
         // age discount
         if (age == "Minor") {
@@ -84,18 +72,103 @@ btnGenerate.addEventListener("click",
             discountType = "Full price";
         }
 
-        // ticket price
+        // number of km
+        var km = document.getElementById("km").value;
+        
+        if( isNaN(km) || km < 1) {
+            alert("Please insert a valid number of km");
+        } 
+
+        // departure city
+        var departure = document.getElementById("departure").value;
+        if (departure == "") {
+            alert("Please insert a valid departure city");
+        } else if (departure == "Milan") {
+            ticketPrice = ticketPrice * 1.1;
+        } else if (departure == "Rome") {
+            ticketPrice = ticketPrice * 1.2;
+        } else if (departure == "Turin") {
+            ticketPrice = ticketPrice * 1.3;
+        } else if (departure == "Naples") {
+            ticketPrice = ticketPrice * 1.4;
+        } else if (departure == "Palermo") {
+            ticketPrice = ticketPrice * 1.5;
+        } else if (departure == "Venice") {
+            ticketPrice = ticketPrice * 1.6;
+        } else if (departure == "Genoa") {
+            ticketPrice = ticketPrice * 1.7;
+        } else if (departure == "Bologna") {
+            ticketPrice = ticketPrice * 1.8;
+        } else if (departure == "Florence") {
+            ticketPrice = ticketPrice * 1.9;
+        } else if (departure == "Bari") {
+            ticketPrice = ticketPrice * 2;
+        } else if (departure == "ReggioEmilia") {
+            ticketPrice = ticketPrice * 2.1;
+        } 
+
+        // destination city
+        var destination = document.getElementById("destination").value;
+        if (destination == "") {
+            alert("Please insert a valid destination city");
+        } else if (destination == "Milan") {
+            ticketPrice = ticketPrice * 1.1;
+        } else if (destination == "Rome") {
+            ticketPrice = ticketPrice * 1.2;
+        } else if (destination == "Turin") {
+            ticketPrice = ticketPrice * 1.3;
+        } else if (destination == "Naples") {
+            ticketPrice = ticketPrice * 1.4;
+        } else if (destination == "Palermo") {
+            ticketPrice = ticketPrice * 1.5;
+        } else if (destination == "Venice") {
+            ticketPrice = ticketPrice * 1.6;
+        } else if (destination == "Genoa") {
+            ticketPrice = ticketPrice * 1.7;
+        } else if (destination == "Bologna") {
+            ticketPrice = ticketPrice * 1.8;
+        } else if (destination == "Florence") {
+            ticketPrice = ticketPrice * 1.9;
+        } else if (destination == "Bari") {
+            ticketPrice = ticketPrice * 2;
+        } else if (destination == "Reggio Emilia") {
+            ticketPrice = ticketPrice * 2.1;
+        }
+
+        // check if the values are the same
+        if (departure === destination) {
+            alert("Departure and destination cities cannot be the same.");;
+        } 
+        
+        // ticket price calculation
+        var ticketPrice
+        var discount;
+        var discountType;
         var finalPrice = (ticketPrice - discount).toFixed(2);
-    
-        // ticket section
+
+        // ticket section print
+        document.getElementById("departure").innerHTML = departure;
+        document.getElementById("destination").innerHTML = destination;
         document.getElementById("passenger").innerHTML = passengerName;
         document.getElementById("discount").innerHTML = discountType;
-        document.getElementById("ticket-price").innerHTML = finalPrice + "€";
-
+        document.getElementById("ticketPrice").innerHTML = finalPrice + "€";
+    
+        // wagon number
         var wagonNumber = Math.floor(Math.random() * 9) + 1;
-        
         document.getElementById("wagon").innerHTML = wagonNumber;
-    }}}}
+        // ccp 
+        var ccp = Math.floor(Math.random() * 9999) + 1;
+        document.getElementById("ccp").innerHTML = ccp;
+        // ticket number
+        var ticketNumber = Math.floor(Math.random() * 9999999) + 1;
+        document.getElementById("ticketNumber").innerHTML = ticketNumber;
+        // date
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        document.getElementById("date").innerHTML = day + "/" + month + "/" + year;
+    }
 )
 
 // event for the button cancel
@@ -106,11 +179,15 @@ btnGenerate.addEventListener("click",
         document.getElementById("name").value = "";
         document.getElementById("km").value = "";
         document.getElementById("age").value = "";
-
         document.getElementById("passenger").innerHTML = "";
         document.getElementById("discount").innerHTML = "";
-        document.getElementById("ticket-price").innerHTML = "";
+        document.getElementById("ticketPrice").innerHTML = "";
         document.getElementById("wagon").innerHTML = "";
+        document.getElementById("departure").value = "";
+        document.getElementById("destination").value = "";
+        document.getElementById("ccp").innerHTML = "";
+        document.getElementById("ticketNumber").innerHTML = "";
+        document.getElementById("date").innerHTML = "";
     }
 )
 
@@ -144,4 +221,3 @@ darkModeSwitch.addEventListener('click', () => {
         icon.classList.add('fa-black');
     }
 });
-
