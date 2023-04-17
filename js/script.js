@@ -60,18 +60,6 @@ btnGenerate.addEventListener("click",
             alert("Please insert a valid age");
         } 
         
-        // age discount
-        if (age == "Minor") {
-            discount = ticketPrice * 0.2; 
-            discountType = "Minor price";
-        } else if (age =="Over-65") {
-            discount = ticketPrice * 0.4;
-            discountType = "Over 65 price";
-        } else {
-            discount = 0;
-            discountType = "Full price";
-        }
-        
         // number of km
         var km = document.getElementById("km").value;
 
@@ -79,9 +67,27 @@ btnGenerate.addEventListener("click",
             alert("Please insert a valid number of km");
         } 
 
+        // ticket price calculation
+        var ticketPrice = (km * 0.21);
+        var discount;
+        var discountType;
+        
+        if (age == "1") {
+            discount = ticketPrice * 0.2; 
+            discountType = "Minor price";
+        } else if (age =="3") {
+            discount = ticketPrice * 0.4;
+            discountType = "Over 65 price";
+        } else { (age == "2")
+            discount = 0;
+            discountType = "Full price";
+        }
+
+        var finalPrice = (ticketPrice - discount).toFixed(2);
+       
         // departure city
         var departure = document.getElementById("departure").value;
-
+     
         if (departure == "") {
             alert("Please insert a valid departure city");
         } else if (departure == destination) {
@@ -96,12 +102,6 @@ btnGenerate.addEventListener("click",
         } else if (destination == departure) {
             alert("Departure and destination cities cannot be the same.");
         }
-
-        // ticket price calculation
-        var ticketPrice = (km * 0.21);
-        var discount;
-        var discountType;
-        var finalPrice = (ticketPrice - discount).toFixed(2);
 
         // ticket section print
         document.getElementById("departureTicekt").innerHTML = departure;
@@ -142,8 +142,8 @@ btnGenerate.addEventListener("click",
         document.getElementById("discount").innerHTML = "";
         document.getElementById("ticketPrice").innerHTML = "";
         document.getElementById("wagon").innerHTML = "";
-        document.getElementById("departureTicekt").value = "";
-        document.getElementById("destinationTicket").value = "";
+        document.getElementById("departureTicekt").innerHTML = "";
+        document.getElementById("destinationTicket").innerHTML = "";
         document.getElementById("ccp").innerHTML = "";
         document.getElementById("ticketNumber").innerHTML = "";
         document.getElementById("date").innerHTML = "";
